@@ -4,7 +4,7 @@ import {createApp} from './app'
 
 createApp()
     .then(app => {
-        const port = process.env.PORT || 3000
+        const port = process.env.PORT || 3001
         app.listen(port, () => {
             console.log(`服务器已启动: http://localhost:${port}`)
             console.log('数据库文件:', path.join(__dirname, 'genshin.db'))

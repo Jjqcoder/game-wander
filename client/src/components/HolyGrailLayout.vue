@@ -29,8 +29,8 @@
 <script setup>
 import {ref} from 'vue'
 
-const showLeft = ref(true)
-const showRight = ref(true)
+const showLeft = ref(false)
+const showRight = ref(false)
 
 const toggleLeft = () => (showLeft.value = !showLeft.value)
 const toggleRight = () => (showRight.value = !showRight.value)

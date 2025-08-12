@@ -1,97 +1,100 @@
 <template>
-    <div class="holy-grail-layout">
-        <header class="header">
-            <slot name="header"></slot>
+    <div class="layout">
+        <!-- 头部 -->
+        <header>
+            <button @click="toggleLeft">☰</button>
+            <button @click="toggleRight">☰</button>
         </header>
 
-        <div class="main-content">
-            <aside class="left-sidebar" :class="{hidden: !showLeftSidebar}">
-                <slot name="left-sidebar"></slot>
+        <!-- 主要内容区 -->
+        <div class="main">
+            <!-- 左侧边栏 -->
+            <aside class="left" :class="{hidden: !showLeft}">
+                <slot name="left"></slot>
             </aside>
 
-            <main class="content">
-                <slot name="content"></slot>
+            <!-- 内容区 -->
+            <main>
+                <slot></slot>
             </main>
 
-            <aside class="right-sidebar" :class="{hidden: !showRightSidebar}">
-                <slot name="right-sidebar"></slot>
+            <!-- 右侧边栏 -->
+            <aside class="right" :class="{hidden: !showRight}">
+                <slot name="right"></slot>
             </aside>
         </div>
-
-        <footer class="footer">
-            <slot name="footer"></slot>
-        </footer>
     </div>
 </template>
 
-<script setup lang="ts">
-import {withDefaults} from 'vue'
+<script setup>
+import {ref} from 'vue'
 
-export interface Props {
-    showLeftSidebar?: boolean
-    showRightSidebar?: boolean
-}
+const showLeft = ref(true)
+const showRight = ref(true)
 
-const props = withDefaults(defineProps<Props>(), {
-    showLeftSidebar: true,
-    showRightSidebar: true
-})
+const toggleLeft = () => (showLeft.value = !showLeft.value)
+const toggleRight = () => (showRight.value = !showRight.value)
 </script>
 
-<style scoped>
-.holy-grail-layout {
+<style>
+/* 基础样式 */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.layout {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
+    background: #222;
+    color: #eee;
 }
 
-.header,
-.footer {
-    padding: 1rem;
-    background-color: #f0f0f0;
-    text-align: center;
+header {
+    background: #111;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
 }
 
-.main-content {
+button {
+    background: #333;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.main {
     display: flex;
     flex: 1;
-}
-
-.left-sidebar,
-.right-sidebar {
-    width: 10%;
-    background-color: #e0e0e0;
-    transition: width 0.3s ease;
     overflow: hidden;
-    padding: 1rem;
 }
 
-.hidden {
-    width: 0;
-    padding: 0;
-    margin: 0;
+/* 侧边栏样式 */
+.left,
+.right {
+    width: 200px;
+    background: #333;
+    transition: all 0.3s;
+    overflow: auto;
 }
 
-.content {
-    flex: 4; /* 占剩余空间的80% */
-    padding: 1rem;
-    background-color: #ffffff;
+.left.hidden {
+    margin-left: -200px;
 }
 
-/* 响应式调整 */
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-    }
+.right.hidden {
+    margin-right: -200px;
+}
 
-    .left-sidebar,
-    .right-sidebar {
-        width: 100%;
-        height: 100px;
-    }
-
-    .hidden {
-        height: 0;
-    }
+/* 内容区样式 */
+main {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
 }
 </style>

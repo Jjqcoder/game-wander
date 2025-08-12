@@ -58,6 +58,7 @@ header {
     padding: 10px;
     display: flex;
     gap: 10px;
+    justify-content: space-between;
 }
 
 button {
@@ -96,5 +97,15 @@ main {
     flex: 1;
     padding: 20px;
     overflow: auto;
+}
+
+/* 隐藏所有滚动条 */
+::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Edge */
+}
+
+/* 确保 Firefox 也隐藏滚动条 */
+html {
+    scrollbar-width: none; /* Firefox */
 }
 </style>

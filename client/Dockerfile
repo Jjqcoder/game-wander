@@ -1,14 +1,28 @@
-# 构建阶段
-FROM node:alpine AS build
-WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm && pnpm install
-COPY . .
-RUN pnpm run build
+# 使用官方nginx镜像作为基础
+FROM nginx:latest
 
-# 生产阶段
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# 设置时区
+ENV TZ=Asia/Shanghai
+
+# 创建证书目录
+RUN mkdir -p /etc/nginx/cert
+
+# 复制nginx配置文件
+COPY myNginxConf/nginx.conf /etc/nginx/nginx.conf
+
+# 复制SSL证书文件
+COPY myNginxConf/cert/ /etc/nginx/cert/
+
+# 复制前端构建产物
+COPY dist/ /usr/share/nginx/html/
+
+# 复制入口脚本并设置可执行权限
+# COPY docker-entrypoint.sh /docker-entrypoint.sh
+# RUN chmod +x /docker-entrypoint.sh
+
+# 暴露端口
 EXPOSE 80
+
+# 设置入口点和默认命令
+# ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]

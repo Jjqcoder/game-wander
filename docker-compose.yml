@@ -4,22 +4,26 @@ services:
             context: ./client
             dockerfile: Dockerfile
         ports:
-            - '81:80'
-        depends_on:
-            - backend
+            # 443给home-lite
+            # 用端口区分确实不太优雅，如果是同一个项目的，以后可以用url前缀区分
+            - '444:80'
+        # 后端使用的时候再打开
+        # depends_on:
+        #     - backend
         networks:
             - app-network
 
-    backend:
-        build:
-            context: ./server
-            dockerfile: Dockerfile
-        ports:
-            - '3001:3001'
-        environment:
-            - PORT=3001
-        networks:
-            - app-network
+    # 暂时用不到后端，后续前端首屏加载慢了再引入后端
+    # backend:
+    #     build:
+    #         context: ./server
+    #         dockerfile: Dockerfile
+    #     ports:
+    #         - '3001:3001'
+    #     environment:
+    #         - PORT=3001
+    #     networks:
+    #         - app-network
 
 networks:
     app-network:

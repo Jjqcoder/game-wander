@@ -14,7 +14,7 @@ jobs:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USER }}
                   key: ${{ secrets.SSH_KEY }}
-                  known_hosts: unnecessary # ← 关键：跳过/自动接受主机密钥
+                  use_insecure_cipher: true # 跳过主机密钥验证
                   script: |
                       set -e
                       cd /root/game-wander

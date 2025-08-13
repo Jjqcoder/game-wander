@@ -23,7 +23,8 @@
 import HolyGrailLayout from './components/HolyGrailLayout.vue'
 import DataSourceSelector from './components/DataSourceSelector.vue'
 import genshinImpact from './data/genshinImpact.json'
-import characterBackstory from './data/characterBackstory.json'
+import character from './data/character.json'
+import food from './data/food.json'
 import {ref, onMounted} from 'vue'
 
 // 定义数据源类型
@@ -38,12 +39,13 @@ const displayData = ref<any[]>([])
 
 // 可用数据源配置
 const availableDataSources = ref([
-    {value: 'characterBackstory', label: 'Character Backstory', data: characterBackstory},
-    {value: 'genshinImpact', label: 'Genshin Impact通用', data: genshinImpact}
+    {value: 'character', label: 'Character', data: character},
+    // {value: 'genshinImpact', label: 'Genshin Impact通用', data: genshinImpact},
+    {value: 'food', label: 'Food', data: food}
 ])
 
 // 当前选中的数据源
-const selectedDataSource = ref<string>('characterBackstory')
+const selectedDataSource = ref<string>('character')
 
 // 更新显示的数据
 const updateDisplayData = () => {

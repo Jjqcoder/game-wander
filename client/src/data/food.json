@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "english": "Sweet Madame is a popular dish in *Genshin Impact*, made from fowl and sweet flowers. This simple yet delicious meal is favored by adventurers for its quick preparation and restorative properties. When consumed, it restores a moderate amount of HP, making it a staple in many travelers' inventories. The combination of tender poultry and the natural sweetness of the flowers creates a comforting flavor that reminds many of home.",
+        "chinese": "甜甜花酿鸡是《原神》中一道广受欢迎的料理，由禽肉和甜甜花制成。这道简单美味的菜肴因制作快捷且具有恢复效果而深受冒险者青睐。食用后可恢复中等量生命值，成为众多旅行者背包中的常备食品。嫩滑的禽肉与甜甜花的自然甜味相结合，营造出令人怀念的温馨口感。"
+    },
+    {
+        "id": 2,
+        "english": "Mondstadt Hash Browns are a specialty from the city of freedom, made from potatoes, jam, and pinecones. These golden-brown patties are crispy on the outside and fluffy on the inside, offering a perfect balance of texture and flavor. They restore a significant amount of HP and are often enjoyed by Mondstadt's citizens as a hearty breakfast. The recipe is said to have been passed down through generations, embodying the warmth and hospitality of Mondstadt.",
+        "chinese": "蒙德土豆饼是来自自由之城的特色料理，以土豆、果酱和松果为原料制作。这些金黄色的饼块外酥内软，口感层次分明，能恢复大量生命值，常被蒙德居民当作丰盛早餐享用。相传这道食谱已传承数代，完美体现了蒙德人热情好客的特质。"
+    },
+    {
+        "id": 3,
+        "english": "Golden Crab is a luxurious Liyue dish made from crab roe, butter, and salt. Known for its rich and savory taste, it is often served during important banquets and celebrations. When consumed, it increases all party members' DEF for a duration, making it a strategic choice for challenging battles. The dish's golden hue and exquisite presentation reflect the culinary sophistication of Liyue's cuisine.",
+        "chinese": "黄金蟹是璃月的一道奢华料理，以蟹黄、黄油和盐烹制而成。其醇厚鲜美的口感使其成为重要宴会与庆典的常备菜肴。食用后能暂时提升全队防御力，是应对高难度战斗的战略性食品。金黄的色泽与精致的摆盘彰显着璃月美食的文化底蕴。"
+    },
+    {
+        "id": 4,
+        "english": "Teyvat Fried Egg is a basic but versatile dish that can be cooked anywhere with just an egg. Its simplicity makes it a common choice for novice chefs, yet its instant revival effect for incapacitated characters gives it unexpected tactical value in combat situations. The runny yolk and lightly crisped edges showcase the beauty of minimalist cooking.",
+        "chinese": "提瓦特煎蛋是一道仅需鸡蛋即可随处烹制的基础料理。虽然做法简单使其成为新手厨师的入门选择，但能让倒下角色立即复苏的效果在战斗中具有出乎意料的战术价值。流动的蛋黄与微焦的边缘展现了极简烹饪的美学。"
+    },
+    {
+        "id": 5,
+        "english": "Jade Parcels are an exquisite Inazuman dish consisting of bamboo shoots, lotus heads, and ham wrapped in cabbage leaves. The delicate steaming process preserves the ingredients' natural flavors while creating a harmonious blend. This dish not only restores HP but also provides a temporary boost to CRIT Rate, symbolizing Inazuma's pursuit of perfection in both culinary and martial arts.",
+        "chinese": "翡玉什锦袋是稻妻的精巧料理，用白菜叶包裹竹笋、莲蓬与火腿蒸制而成。文火慢蒸的工艺既保留了食材本味又形成层次丰富的口感。食用后除恢复生命外还能暂时提升暴击率，体现了稻妻人对饮食之道与武艺同样极致的追求。"
+    }
+]

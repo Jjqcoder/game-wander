@@ -14,7 +14,7 @@ jobs:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USER }}
                   key: ${{ secrets.SSH_KEY }}
-                  use_insecure_cipher: true # 跳过主机密钥验证
+                  fingerprint: ${{ secrets.HOST_FINGERPRINT }} # 添加指纹
                   script: |
                       set -e
                       cd /root/game-wander

@@ -7,11 +7,12 @@
             <DataSourceSelector v-model="selectedDataSource" :options="availableDataSources" @change="updateDisplayData" />
 
             <div class="cards-container">
-                <div v-for="item in displayData" :key="item.id" class="knowledge-card">
+                <div v-for="item in displayData" :key="item.id" class="knowledge-card" @click="showChineseMap[item.id] = !showChineseMap[item.id]">
                     <h3 class="card-id">#{{ item.id }}</h3>
                     <div class="text-content">
                         <p class="english">{{ item.english }}</p>
-                        <p class="chinese">{{ item.chinese }}</p>
+                        <p v-if="showChineseMap[item.id]" class="chinese">{{ item.chinese }}</p>
+                        <p v-if="!showChineseMap[item.id]" class="hint">Tap to reveal Chinese</p>
                     </div>
                 </div>
             </div>
@@ -36,6 +37,7 @@ interface DataSource {
 
 // 当前显示的数据
 const displayData = ref<any[]>([])
+const showChineseMap = ref<Record<string, boolean>>({})
 
 // 可用数据源配置
 const availableDataSources = ref([
@@ -52,6 +54,11 @@ const updateDisplayData = () => {
     const source = availableDataSources.value.find(s => s.value === selectedDataSource.value)
     if (source) {
         displayData.value = source.data
+        // 初始化中文显示状态为 false
+        showChineseMap.value = {}
+        source.data.forEach(item => {
+            showChineseMap.value[item.id] = false
+        })
     }
 }
 
@@ -175,5 +182,13 @@ defineExpose({
     content: '🇨🇳';
     margin-right: 8px;
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+.hint {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: rgba(196, 209, 230, 0.6);
+    text-align: center;
+    transition: opacity 0.3s ease;
 }
 </style>

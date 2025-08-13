@@ -3,15 +3,8 @@
         <div class="content">
             <h1 class="page-title">Learn English through Genshin Impact</h1>
 
-            <!-- 数据源选择器 -->
-            <div class="data-source-selector">
-                <label for="dataSource">选择学习内容：</label>
-                <select id="dataSource" v-model="selectedDataSource" @change="updateDisplayData">
-                    <option v-for="source in availableDataSources" :key="source.value" :value="source.value">
-                        {{ source.label }}
-                    </option>
-                </select>
-            </div>
+            <!-- 使用新的数据源选择器组件 -->
+            <DataSourceSelector v-model="selectedDataSource" :options="availableDataSources" @change="updateDisplayData" />
 
             <div class="cards-container">
                 <div v-for="item in displayData" :key="item.id" class="knowledge-card">
@@ -25,6 +18,62 @@
         </div>
     </HolyGrailLayout>
 </template>
+
+<script setup lang="ts">
+import HolyGrailLayout from './components/HolyGrailLayout.vue'
+import DataSourceSelector from './components/DataSourceSelector.vue'
+import genshinImpact from './data/genshinImpact.json'
+import characterBackstory from './data/characterBackstory.json'
+import {ref, onMounted} from 'vue'
+
+// 定义数据源类型
+interface DataSource {
+    value: string
+    label: string
+    data: any[]
+}
+
+// 当前显示的数据
+const displayData = ref<any[]>([])
+
+// 可用数据源配置
+const availableDataSources = ref([
+    {value: 'characterBackstory', label: 'Character Backstory', data: characterBackstory},
+    {value: 'genshinImpact', label: 'Genshin Impact通用', data: genshinImpact}
+])
+
+// 当前选中的数据源
+const selectedDataSource = ref<string>('characterBackstory')
+
+// 更新显示的数据
+const updateDisplayData = () => {
+    const source = availableDataSources.value.find(s => s.value === selectedDataSource.value)
+    if (source) {
+        displayData.value = source.data
+    }
+}
+
+// 初始化时加载数据
+onMounted(() => {
+    updateDisplayData()
+})
+
+// 暴露方法以便外部可以添加新的数据源
+const addDataSource = (newSource: DataSource) => {
+    availableDataSources.value.push(newSource)
+    // 如果添加的是当前选中的数据源，更新显示
+    if (newSource.value === selectedDataSource.value) {
+        updateDisplayData()
+    }
+}
+
+// 暴露必要的方法和数据以便外部使用
+defineExpose({
+    addDataSource,
+    availableDataSources,
+    selectedDataSource
+})
+</script>
 
 <style scoped>
 .content {
@@ -126,58 +175,3 @@
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
 }
 </style>
-
-<script setup lang="ts">
-import HolyGrailLayout from './components/HolyGrailLayout.vue'
-import genshinImpact from './data/genshinImpact.json'
-import characterBackstory from './data/characterBackstory.json'
-import {ref, onMounted} from 'vue'
-
-// 定义数据源类型
-interface DataSource {
-    value: string
-    label: string
-    data: any[]
-}
-
-// 当前显示的数据
-const displayData = ref<any[]>([])
-
-// 可用数据源配置
-const availableDataSources = ref<DataSource[]>([
-    {value: 'characterBackstory', label: '角色背景故事', data: characterBackstory},
-    {value: 'genshinImpact', label: 'Genshin Impact通用', data: genshinImpact}
-])
-
-// 当前选中的数据源
-const selectedDataSource = ref<string>('characterBackstory')
-
-// 更新显示的数据
-const updateDisplayData = () => {
-    const source = availableDataSources.value.find(s => s.value === selectedDataSource.value)
-    if (source) {
-        displayData.value = source.data
-    }
-}
-
-// 初始化时加载数据
-onMounted(() => {
-    updateDisplayData()
-})
-
-// 暴露方法以便外部可以添加新的数据源
-const addDataSource = (newSource: DataSource) => {
-    availableDataSources.value.push(newSource)
-    // 如果添加的是当前选中的数据源，更新显示
-    if (newSource.value === selectedDataSource.value) {
-        updateDisplayData()
-    }
-}
-
-// 暴露必要的方法和数据以便外部使用
-defineExpose({
-    addDataSource,
-    availableDataSources,
-    selectedDataSource
-})
-</script>

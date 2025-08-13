@@ -1,12 +1,37 @@
 [
     {
         "id": 1,
-        "english": "Alhaitham is a 5-star Dendro character in *Genshin Impact*, serving as the current scribe of the Sumeru Akademiya. Known for his sharp intellect and independent nature, he prefers a quiet life, avoiding unnecessary meetings and social obligations. Despite his pivotal role in saving Lesser Lord Kusanali, he rejects the title of 'hero' and declines offers to become the Grand Sage, choosing instead to maintain his simple yet efficient lifestyle as a scribe. His analytical mind and self-defined moral code make him a unique figure in Sumeru's political landscape.",
-        "chinese": "艾尔海森是《原神》中的5星草系角色，现任须弥教令院书记官。他以过人的智慧和特立独行的性格著称，偏爱远离社交的清净生活。尽管在拯救小吉祥草王的行动中发挥了关键作用，他却拒绝‘英雄’称号，并多次婉拒担任大贤者的邀请，坚持回归书记官的平凡职位。他凭借理性至上的处事原则和自成一体的道德准则，成为须弥学术与政治体系中的独特存在。"
+        "english": "Alhaitham is a 5-star Dendro character in *Genshin Impact*, serving as the current scribe of the Sumeru Akademiya. Known for his sharp intellect and independent nature, he prefers a quiet life, avoiding unnecessary meetings and social obligations. Despite his pivotal role in saving Lesser Lord Kusanali, he rejects the title of 'hero' and declines offers to become the Grand Sage, choosing instead to maintain his simple yet efficient lifestyle as a scribe. His analytical mind and self-defined moral code make him a unique figure in Sumeru's political landscape. Historically, his character draws inspiration from the renowned Arab polymath Alhazen (Ibn al-Haytham), a pioneer in optics, mathematics, and scientific methodology during the Islamic Golden Age.",
+        "chinese": "艾尔海森是《原神》中的5星草系角色，现任须弥教令院书记官。他以过人的智慧和特立独行的性格著称，偏爱远离社交的清净生活。尽管在拯救小吉祥草王的行动中发挥了关键作用，他却拒绝‘英雄’称号，并多次婉拒担任大贤者的邀请，坚持回归书记官的平凡职位。他凭借理性至上的处事原则和自成一体的道德准则，成为须弥学术与政治体系中的独特存在。其角色原型可追溯至伊斯兰黄金时代的全能学者海什木（伊本·海赛姆）——光学、数学与科学方法论的开创者。"
     },
     {
         "id": 2,
-        "english": "Kaveh is a 4-star Dendro character in *Genshin Impact*, renowned as the 'Light of the Kshahrewar' for his exceptional architectural designs. Despite his professional acclaim, his idealistic pursuits lead to financial ruin after a failed project destroys his savings and family home. Haunted by guilt over his father's death and his mother's departure, he channels his pain into altruism, often prioritizing others' needs over his own. Forced to live with his estranged colleague Alhaitham, Kaveh embodies the struggle between artistic passion and harsh reality.",
-        "chinese": "卡维是《原神》中的4星草系角色，被誉为‘妙论派之光’的杰出建筑设计师。尽管事业有成，却因过度追求理想化项目破产，甚至变卖祖宅抵债。背负着父亲早逝与母亲改嫁的心理阴影，他将愧疚转化为对他人的过度关怀，常为帮助他人牺牲自我。破产后寄宿于昔日合作者艾尔海森家中，其人生轨迹深刻展现了艺术理想与现实困境的尖锐矛盾。"
+        "english": "Kaveh is a 4-star Dendro character in *Genshin Impact*, renowned as the 'Light of the Kshahrewar' for his exceptional architectural designs. Despite his professional acclaim, his idealistic pursuits lead to financial ruin after a failed project destroys his savings and family home. Haunted by guilt over his father's death and his mother's departure, he channels his pain into altruism, often prioritizing others' needs over his own. Forced to live with his estranged colleague Alhaitham, Kaveh embodies the struggle between artistic passion and harsh reality. His character reflects the tragic brilliance of real-world architects like Antonio Gaudí, whose visionary works (e.g., Sagrada Família) were simultaneously celebrated and financially catastrophic.",
+        "chinese": "卡维是《原神》中的4星草系角色，被誉为‘妙论派之光’的杰出建筑设计师。尽管事业有成，却因过度追求理想化项目破产，甚至变卖祖宅抵债。背负着父亲早逝与母亲改嫁的心理阴影，他将愧疚转化为对他人的过度关怀，常为帮助他人牺牲自我。破产后寄宿于昔日合作者艾尔海森家中，其人生轨迹深刻展现了艺术理想与现实困境的尖锐矛盾。其角色设定呼应了现实中的悲情建筑大师安东尼奥·高迪——以圣家堂等惊世作品流芳百世，却因工程超支陷入财务绝境。"
+    },
+    {
+        "id": 3,
+        "english": "Tighnari is a 5-star Dendro bow-user in *Genshin Impact* and the lead ranger of the Avidya Forest. A graduate of the Sumeru Akademiya renowned for his encyclopedic knowledge of botany, he resigned from academia to protect the rainforest from irreversible ecological collapse. His fox-like ears and tail mark him as a member of the elusive Anpu race, who possess innate dendro-vision. Tighnari balances scientific rigor with a sharp tongue, often scolding reckless researchers who exploit nature. His character draws inspiration from the Egyptian jackal-headed god Anubis and contemporary conservationists like Jane Goodall, blending mythological symbolism with ecological activism.",
+        "chinese": "提纳里是《原神》中的5星草系弓箭手，道成林巡林官之首。作为须弥教令院植物学的顶尖学者，他因目睹雨林生态的急剧恶化而毅然离开学界，投身保护原始森林的战斗。其狐耳与尾巴昭示着他身为神秘的「暝彩犬」族裔——一支天生具备草元素亲和力的族群。他以科学家的严谨与毒舌的吐槽闻名，常痛斥那些为研究而破坏自然的学者。角色融合了埃及胡狼头神阿努比斯的神话意象与珍·古道尔式的生态保护精神。"
+    },
+    {
+        "id": 4,
+        "english": "Cyno is a 5-star Electro polearm user in *Genshin Impact*, serving as the General Mahamatra—the supreme enforcer of Sumeru's divine laws. A former student of the Akademiya's Haravatat Darshan, he abandoned theoretical study to master ancient incantations and ritual combat. His stern demeanor masks a childish love for *Matra* trading cards, creating a stark contrast between feared lawbringer and awkward nerd. Cyno's design incorporates elements of ancient Egyptian jackal deities (particularly Wepwawet) and the concept of Ma'at (divine order), reflecting his role as both judge and executioner in Sumeru's theocratic society.",
+        "chinese": "赛诺是《原神》中的5星雷系长柄武器角色，现任须弥教令院「大风纪官」——最高律法执行者。他曾是教令院「明论派」的优等生，后舍弃纯理论研究，转而钻研上古咒术与仪式战斗。其冷峻外表下隐藏着对「七圣召唤」卡牌游戏的狂热，形成令人啼笑皆非的反差。角色设计融合了古埃及胡狼神祇（特别是乌普奥特）与「玛阿特」秩序概念，象征其在须弥神权体系中的审判者与行刑人双重身份。"
+    },
+    {
+        "id": 5,
+        "english": "Nilou is a 5-star Hydro sword user in *Genshin Impact*, the star dancer of Sumeru's Zubayr Theater. Forbidden by Akademiya doctrine from performing religious-themed dances, she revolutionizes Sumeru's art scene by blending secular storytelling with traditional dance forms. Her performances—often depicting the struggles of common people—become a subtle act of rebellion against the scholarly elite's suppression of culture. Nilou's character parallels the historical figure of Persian dancer 'Sania' (legendary for defying Abbasid caliphate restrictions), embodying the tension between artistic freedom and institutional control in medieval Islamic societies.",
+        "chinese": "妮露是《原神》中的5星水系单手剑角色，祖拜尔剧场的首席舞者。因教令院禁令不得演绎宗教舞蹈，她转而将民间叙事与传统舞艺结合，开创须弥世俗舞蹈的先河。其作品中对平民生活的刻画，成为对学术寡头文化压制的无声反抗。角色原型参照波斯传奇舞者「萨妮娅」——因违抗阿拔斯王朝舞蹈禁令而闻名，映射中世纪伊斯兰世界艺术自由与体制束缚的永恒冲突。"
+    },
+    {
+        "id": 6,
+        "english": "Dehya is a 5-star Pyro claymore user in *Genshin Impact*, a legendary mercenary from the deserts of Sumeru known as the 'Lioness of the Sands'. Born into a marginalized clan of beast-tamers, she rose through sheer combat prowess to become the most feared warrior in the Eremite circuit. Her moral code—protecting the weak regardless of payment—puts her at odds with the profit-driven mercenary culture. Dehya's design incorporates Berber warrior aesthetics and the mythological Lamassu (Assyrian protective deities), while her narrative reflects the historical struggles of North African nomadic tribes against centralized empires.",
+        "chinese": "迪希雅是《原神》中的5星火系双手剑角色，来自须弥沙漠的传奇佣兵「赤沙之狮」。她出身驯兽部族，因部族遭边缘化而投身战斗，凭武力崛起为沙漠佣兵界的巅峰存在。其「弱者也值得保护」的准则与唯利是图的佣兵文化格格不入。角色设计融合柏柏尔战士服饰与亚述拉玛苏守护神意象，其故事折射了北非游牧部族对抗中央集权帝国的历史困境。"
+    },
+    {
+        "id": 7,
+        "english": "Candace is a 4-star Hydro polearm user in *Genshin Impact*, the guardian of Aaru Village and last descendant of the ancient desert kingdom of Deshret. Tasked with protecting her people from both Eremite raiders and Akademiya exploitation, she wields a ceremonial spear passed down through generations. Her strict adherence to ancestral customs clashes with younger villagers' desire for modernization, creating generational conflict. Candace's character draws from Nubian warrior-queens (particularly the historical Kandake of Meroë) and the Coptic Christian traditions of Upper Egypt, representing the cultural crossroads of ancient Nubia and Hellenistic influences.",
+        "chinese": "坎蒂丝是《原神》中的4星水系长柄武器角色，阿如村的守护者，赤王古国末代血脉。她既要抵御沙漠佣兵的劫掠，又要防范教令院的蚕食，手中长枪是沿袭千年的仪式兵器。其对祖制的严苛恪守与年轻一代的革新诉求激烈碰撞。角色原型取自努比亚女战士君主（特别是麦罗埃的康达克女王）与上埃及科普特基督教传统，象征古努比亚与希腊化文明交汇的十字路口。"
     }
 ]

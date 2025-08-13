@@ -2,8 +2,19 @@
     <HolyGrailLayout>
         <div class="content">
             <h1 class="page-title">Learn English through Genshin Impact</h1>
+
+            <!-- 数据源选择器 -->
+            <div class="data-source-selector">
+                <label for="dataSource">选择学习内容：</label>
+                <select id="dataSource" v-model="selectedDataSource" @change="updateDisplayData">
+                    <option v-for="source in availableDataSources" :key="source.value" :value="source.value">
+                        {{ source.label }}
+                    </option>
+                </select>
+            </div>
+
             <div class="cards-container">
-                <div v-for="item in genshinImpact" :key="item.id" class="knowledge-card">
+                <div v-for="item in displayData" :key="item.id" class="knowledge-card">
                     <h3 class="card-id">#{{ item.id }}</h3>
                     <div class="text-content">
                         <p class="english">{{ item.english }}</p>
@@ -20,16 +31,41 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background: rgba(15, 23, 42, 0.8); /* 深蓝色背景，类似原神夜空 */
+    background: rgba(15, 23, 42, 0.8);
 }
 
 .page-title {
-    color: #f8d56b; /* 更亮的金色，类似原神UI标题色 */
+    color: #f8d56b;
     text-align: center;
     margin-bottom: 30px;
     font-size: 1.8rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: 'Genshin Impact', sans-serif; /* 建议使用类似原神的字体 */
+    font-family: 'Genshin Impact', sans-serif;
+}
+
+.data-source-selector {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.data-source-selector label {
+    color: #c4d1e6;
+    margin-right: 10px;
+}
+
+.data-source-selector select {
+    background: rgba(32, 53, 85, 0.8);
+    color: #f8d56b;
+    border: 1px solid #f8d56b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.data-source-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(248, 213, 107, 0.3);
 }
 
 .cards-container {
@@ -39,18 +75,18 @@
 }
 
 .knowledge-card {
-    background: linear-gradient(135deg, rgba(32, 53, 85, 0.8) 0%, rgba(19, 34, 57, 0.9) 100%); /* 深蓝渐变 */
-    border-left: 4px solid #f8d56b; /* 金色边框 */
+    background: linear-gradient(135deg, rgba(32, 53, 85, 0.8) 0%, rgba(19, 34, 57, 0.9) 100%);
+    border-left: 4px solid #f8d56b;
     border-radius: 0 8px 8px 0;
     padding: 18px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    backdrop-filter: blur(4px); /* 毛玻璃效果 */
+    backdrop-filter: blur(4px);
 }
 
 .knowledge-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(248, 213, 107, 0.2); /* 金色辉光效果 */
+    box-shadow: 0 6px 16px rgba(248, 213, 107, 0.2);
 }
 
 .card-id {
@@ -61,21 +97,21 @@
 }
 
 .text-content {
-    background: rgba(11, 22, 39, 0.6); /* 更深蓝的背景 */
+    background: rgba(11, 22, 39, 0.6);
     padding: 15px;
     border-radius: 6px;
     line-height: 1.6;
-    border: 1px solid rgba(248, 213, 107, 0.1); /* 细金色边框 */
+    border: 1px solid rgba(248, 213, 107, 0.1);
 }
 
 .english {
-    color: #e9f1ff; /* 亮白色带蓝色调 */
+    color: #e9f1ff;
     margin-bottom: 8px;
     font-weight: 500;
 }
 
 .chinese {
-    color: #c4d1e6; /* 柔和的蓝灰色 */
+    color: #c4d1e6;
 }
 
 .english::before {
@@ -94,4 +130,54 @@
 <script setup lang="ts">
 import HolyGrailLayout from './components/HolyGrailLayout.vue'
 import genshinImpact from './data/genshinImpact.json'
+import characterBackstory from './data/characterBackstory.json'
+import {ref, onMounted} from 'vue'
+
+// 定义数据源类型
+interface DataSource {
+    value: string
+    label: string
+    data: any[]
+}
+
+// 当前显示的数据
+const displayData = ref<any[]>([])
+
+// 可用数据源配置
+const availableDataSources = ref<DataSource[]>([
+    {value: 'characterBackstory', label: '角色背景故事', data: characterBackstory},
+    {value: 'genshinImpact', label: 'Genshin Impact通用', data: genshinImpact}
+])
+
+// 当前选中的数据源
+const selectedDataSource = ref<string>('characterBackstory')
+
+// 更新显示的数据
+const updateDisplayData = () => {
+    const source = availableDataSources.value.find(s => s.value === selectedDataSource.value)
+    if (source) {
+        displayData.value = source.data
+    }
+}
+
+// 初始化时加载数据
+onMounted(() => {
+    updateDisplayData()
+})
+
+// 暴露方法以便外部可以添加新的数据源
+const addDataSource = (newSource: DataSource) => {
+    availableDataSources.value.push(newSource)
+    // 如果添加的是当前选中的数据源，更新显示
+    if (newSource.value === selectedDataSource.value) {
+        updateDisplayData()
+    }
+}
+
+// 暴露必要的方法和数据以便外部使用
+defineExpose({
+    addDataSource,
+    availableDataSources,
+    selectedDataSource
+})
 </script>

@@ -1,5 +1,9 @@
 name: CD
 
+run: |
+    echo "HOST=[${{ secrets.HOST }}]"
+    echo "USER=[${{ secrets.USER }}]"
+
 on:
     push:
         branches: [master]

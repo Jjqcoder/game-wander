@@ -28,7 +28,7 @@ const props = defineProps({
     },
     labelText: {
         type: String,
-        default: '选择学习内容：'
+        default: 'Select a type'
     }
 })
 

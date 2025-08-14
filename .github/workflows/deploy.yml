@@ -8,12 +8,14 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Check private key format
+            - name: Validate SSH Key
               run: |
-                  echo "Private key starts with:"
+                  echo "Private key header:"
                   echo "${{ secrets.SSH_KEY }}" | head -n 1
+                  echo "Fingerprint verification:"
+                  echo "${{ secrets.HOST_FINGERPRINT }}"
 
-            - name: SSH & deploy
+            - name: SSH Deployment
               uses: appleboy/ssh-action@v0.1.10
               with:
                   host: ${{ secrets.HOST }}
@@ -21,10 +23,13 @@ jobs:
                   username: ${{ secrets.USER }}
                   key: ${{ secrets.SSH_KEY }}
                   fingerprint: ${{ secrets.HOST_FINGERPRINT }}
-                  use_insecure_cipher: true
-                  timeout: 60s
+                  use_insecure_cipher: true # 针对OpenSSH 7.4的必须参数
+                  timeout: 120s # 增加超时时间
+                  script_stop: true # 脚本出错时立即停止
                   script: |
-                      set -x
-                      cd /root/game-wander
-                      git pull origin main
-                      docker-compose up -d --build
+                      set -ex  # 开启详细日志和错误退出
+                      cd /root/game-wander || exit 1
+                      git fetch origin main  # 先fetch再reset避免冲突
+                      git reset --hard origin/main
+                      docker-compose down    # 先停止再启动确保干净环境
+                      docker-compose up -d --build --remove-orphans

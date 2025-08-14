@@ -9,16 +9,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: SSH & deploy
-              uses: appleboy/ssh-action@v1
+              uses: appleboy/ssh-action@master
               with:
                   host: ${{ secrets.HOST }}
                   port: 22
                   username: ${{ secrets.USER }}
                   key: ${{ secrets.SSH_KEY }}
                   fingerprint: ${{ secrets.HOST_FINGERPRINT }}
-                  host_key_algorithms: ssh-rsa # 强制使用旧版算法
+                  use_insecure_cipher: true # 关键参数
+                  timeout: 30s
                   script: |
-                      set -x  # 开启详细日志
+                      set -x
                       cd /root/game-wander
                       git pull origin main
                       docker-compose up -d --build

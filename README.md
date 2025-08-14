@@ -11,4 +11,4 @@ This is a repository about the game Genshin Impact
 5. `docker-compose up -d --build`
 6. visit `https://www.wbeishangw.top:444/`
 
-## cicd test 8
+## cicd test 9

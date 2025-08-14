@@ -1,12 +1,22 @@
-- name: SSH & deploy
-  uses: appleboy/ssh-action@v1
-  with:
-      host: ${{ secrets.HOST }} # 确保这是 120.27.159.194
-      port: 22 # 明确指定端口
-      username: ${{ secrets.USER }}
-      key: ${{ secrets.SSH_KEY }}
-      fingerprint: ${{ secrets.HOST_FINGERPRINT }} # 确保是 SHA256 格式
-      script: |
-          cd /root/game-wander
-          git pull origin main
-          docker-compose up -d --build
+name: CD
+
+on:
+    push:
+        branches: [master]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: SSH & deploy
+              uses: appleboy/ssh-action@v1
+              with:
+                  host: ${{ secrets.HOST }} # 确保是 120.27.159.194
+                  port: 22 # 明确指定端口
+                  username: ${{ secrets.USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  fingerprint: ${{ secrets.HOST_FINGERPRINT }} # 确保是 SHA256 格式
+                  script: |
+                      cd /root/game-wander
+                      git pull origin main
+                      docker-compose up -d --build

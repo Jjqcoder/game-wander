@@ -21,12 +21,13 @@
 </template>
 
 <script setup lang="ts">
-import HolyGrailLayout from './components/HolyGrailLayout.vue'
 import DataSourceSelector from './components/DataSourceSelector.vue'
-import genshinImpact from './data/genshinImpact.json'
-import character from './data/character.json'
-import food from './data/food.json'
-import {ref, onMounted} from 'vue'
+import HolyGrailLayout from './components/HolyGrailLayout.vue'
+// import genshinImpact from './data/genshinImpact.json'
+// import character from './data/character.json'
+// import food from './data/food.json'
+import {onMounted, ref} from 'vue'
+import genshinImpactQuotes from './data/GenshinImpactQuotes.json'
 
 // 定义数据源类型
 interface DataSource {
@@ -41,13 +42,14 @@ const showChineseMap = ref<Record<string, boolean>>({})
 
 // 可用数据源配置
 const availableDataSources = ref([
-    {value: 'character', label: 'Character', data: character},
+    // {value: 'character', label: 'Character', data: character},
     // {value: 'genshinImpact', label: 'Genshin Impact通用', data: genshinImpact},
-    {value: 'food', label: 'Food', data: food}
+    // {value: 'food', label: 'Food', data: food}
+    {value: 'genshinImpactQuotes', label: 'Genshin Impact Quotes', data: genshinImpactQuotes}
 ])
 
 // 当前选中的数据源
-const selectedDataSource = ref<string>('character')
+const selectedDataSource = ref<string>('genshinImpactQuotes')
 
 // 更新显示的数据
 const updateDisplayData = () => {

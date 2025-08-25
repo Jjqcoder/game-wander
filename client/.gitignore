@@ -25,3 +25,4 @@ dist-ssr
 
 # new
 myNginxConf/cert
+src/data
